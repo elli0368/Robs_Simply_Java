@@ -18,7 +18,7 @@ public class FileGetMain {
 		String ch;
 		char ch1 = 'e';
 		
-		FileUtil fu = new FileUtil();
+		FileUtil fu = new FileUtil;
 		
 		System.out.println("Welcome to FileMakerGetter");
 		do {

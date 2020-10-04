@@ -17,9 +17,6 @@ public class FileGetMain {
 		Scanner sc = new Scanner(System.in);
 		String ch;
 		char ch1 = 'e';
-		
-		FileUtil fu = new FileUtil();
-		
 		System.out.println("Welcome to FileMakerGetter");
 		do {
 			System.out.println("File Menu");
@@ -39,7 +36,7 @@ public class FileGetMain {
 			case 'a':
 				System.out.println("Enter File Name");
 				fileName = sc.nextLine();
-				fu.addFile(fileName);
+				FileUtil.addFile(fileName);
 
 				print_debug_msg("after addFile");
 
@@ -48,19 +45,19 @@ public class FileGetMain {
 
 				System.out.println("Enter File Name");
 				fileName = sc.nextLine();
-				fu.searchFile(fileName);
+				FileUtil.searchFile(fileName);
 				break;
 
 			case 'l':
 
-				fu.listFiles();
+				FileUtil.listFiles();
 				break;
 
 			case 'd':
 
 				System.out.println("Enter File Name");
 				fileName = sc.nextLine();
-				fu.deleteFile(fileName);
+				FileUtil.deleteFile(fileName);
 
 				break;
 			case 'e':

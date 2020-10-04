@@ -6,9 +6,9 @@ import java.io.IOException; // Import the IOException class to handle errors
 
 public class FileUtil {
 
-	private String myFolder = "./myFiles/";
+	private static String myFolder = "./myFiles/";
 
-	public void addFile(String pFileName) {
+	public static void addFile(String pFileName) {
 		try {
 			File directory = new File(myFolder);
 			if (!directory.exists()) {
@@ -26,7 +26,7 @@ public class FileUtil {
 		}
 	}
 
-	public void deleteFile(String pFileName) {
+	public static void deleteFile(String pFileName) {
 
 		File myObj = new File(myFolder + pFileName);
 		if (myObj.delete()) {
@@ -36,7 +36,7 @@ public class FileUtil {
 		}
 	}
 
-	public void listFiles() {
+	public static void listFiles() {
 
 		File folder = new File(myFolder);
 		File[] files = folder.listFiles();
@@ -53,7 +53,7 @@ public class FileUtil {
 		System.out.println(""); // blank line
 	}
 
-	public void searchFile(String name) {
+	public static void searchFile(String name) {
 		boolean foundFile = false;
 		File folder = new File(myFolder);
 		File[] files = folder.listFiles();
