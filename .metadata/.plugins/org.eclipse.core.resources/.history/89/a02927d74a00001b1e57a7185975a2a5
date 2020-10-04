@@ -1,0 +1,67 @@
+package FileGet;
+
+import java.util.Scanner;
+
+public class FileGetMain {
+
+	//private static char runMode = 'V'; // verbose mode
+	private static char runMode = 'N'; // non-verbose mode
+
+	public static void print_debug_msg(String p_debug_message) {
+		if (runMode == 'V') {
+			System.out.println(p_debug_message);
+		}
+	}
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String ch;
+		char ch1 = 'e';
+		System.out.println("Welcome to FileMakerGetter");
+		do {
+			System.out.println("File Menu");
+			System.out.println("------------");
+			System.out.println("a)Add File, s)Search Files, d)Delete File, e)EXIT");
+			String fileName;
+			try {
+				
+				print_debug_msg("in try to read input");
+				ch = sc.nextLine();
+				ch1 = ch.charAt(0);
+
+			} catch (StringIndexOutOfBoundsException e) {
+				ch1 = 'z';
+			}
+			switch (ch1) {
+			case 'a':
+				System.out.println("Enter File Name");
+				fileName = sc.nextLine();
+				FileUtil.addFile(fileName);
+				
+				print_debug_msg("after addFile");
+				
+				break;
+			case 's':
+				//System.out.println("Search is under construction");
+				FileUtil.searchFile();
+				
+				break;
+			case 'd':
+				
+				System.out.println("Enter File Name");
+				fileName = sc.nextLine();
+				FileUtil.deleteFile(fileName);
+				
+				break;
+			case 'e':
+				System.out.println("Thanks for using our app...exiting");
+				break;
+			default:
+				System.out.println("Invalid Choice... Choice should and must be between 1-4 only");
+				break;
+			}
+		} while (ch1 != 'e');
+		sc.close();
+	}
+
+}
